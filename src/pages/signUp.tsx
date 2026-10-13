@@ -25,7 +25,7 @@ function SignUp(){
     }
     return(
         <div className="h-screen w-screen bg-grey-200 flex justify-center items-center">
-            <div className="bg-white rounded-xl p-10 ">
+            <div className="bg-white rounded-xl p-10 flex flex-col">
                 <Input reference={usernameRef} placeHolder="Username" />
                 <Input reference={passwordRef} placeHolder="Password" />
                 <div className="flex justify-center pt-5">

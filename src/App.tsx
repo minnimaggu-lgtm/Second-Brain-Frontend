@@ -1,22 +1,30 @@
 import axios from "axios";
-import Dashboard from "./pages/dashboard";
-import SignIn from "./pages/signIn";
-import SignUp from "./pages/signUp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-
+import { useEffect, useState, Suspense, lazy} from "react";
+import SignUp from "./pages/signUp";
+import SignIn from "./pages/signIn";
+import Home from "./pages/home";
 
 function App(){
-  const savedToken = localStorage.getItem('authToken');
-  if (savedToken) {
-    axios.defaults.headers.common['Authorization'] = savedToken;
-  }
+  const [user,setUser] = useState("");
+  useEffect(()=>{
+    function TokenSet(){
+      const savedToken = localStorage.getItem('authToken');
+      const u = localStorage.getItem('user');
+      if (savedToken) {
+        axios.defaults.headers.common['Authorization'] = savedToken;
+        setUser(u!);
+      }
+    }
+    TokenSet();
+  },[])
+  
   return(
     <BrowserRouter>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/signin" element={<SignIn user={user} setUser={setUser}/>} />
+        <Route path="/home" element={<Home user={user}/>} />
       </Routes>
     </BrowserRouter>
 
