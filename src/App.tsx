@@ -1,24 +1,27 @@
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState} from "react";
+import {  useEffect, useState} from "react";
 import SignUp from "./pages/signUp";
 import SignIn from "./pages/signIn";
 import Home from "./pages/home";
 
 function App(){
-  const [user,setUser] = useState("");
+  const [user, setUser] = useState("");
+  const savedToken = localStorage.getItem('authToken');
+  if (savedToken) {
+    axios.defaults.headers.common['Authorization'] = savedToken;
+  }
+  
   useEffect(()=>{
-    function TokenSet(){
-      const savedToken = localStorage.getItem('authToken');
+    function getUser(){
       const u = localStorage.getItem('user');
-      if (savedToken) {
-        axios.defaults.headers.common['Authorization'] = savedToken;
+      if(u){
         setUser(u!);
       }
     }
-    TokenSet();
+    getUser();
   },[])
-  
+
   return(
     <BrowserRouter>
       <Routes>
