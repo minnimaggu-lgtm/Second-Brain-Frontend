@@ -1,11 +1,11 @@
-import { useRef, useState } from "react"
+import { useRef } from "react"
 import { Input } from "../components/input";
 import { Button } from "../components/button";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";
 
-function SignIn({user, setUser}:{user: string, setUser:React.Dispatch<React.SetStateAction<string>>}){
+function SignIn({setUser}:{setUser:React.Dispatch<React.SetStateAction<string>>}){
     const usernameRef = useRef<any>(null);
     const passwordRef = useRef<any>(null);
     const navigate = useNavigate();

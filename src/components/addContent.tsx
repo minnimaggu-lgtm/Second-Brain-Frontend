@@ -10,7 +10,7 @@ import { MsgBox } from "./msgBox";
 
 type AddContentPropType = {
     setClose: ()=>void;
-    cardsSize: number;
+    cardsSize?: number;
     setCardsSize: React.Dispatch<React.SetStateAction<number>>;
 }
 
@@ -21,7 +21,7 @@ interface dataType{
     tags: string[];
 }
 
-export function AddContent({setClose, cardsSize, setCardsSize}: AddContentPropType){
+export function AddContent({setClose, setCardsSize}: AddContentPropType){
     const titleRef = useRef<any>(null);
     const linkRef = useRef<any>(null);
     const [cType,setCType] = useState("Card Type")

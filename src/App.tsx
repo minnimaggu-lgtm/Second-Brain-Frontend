@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState, Suspense, lazy} from "react";
+import { useEffect, useState} from "react";
 import SignUp from "./pages/signUp";
 import SignIn from "./pages/signIn";
 import Home from "./pages/home";
@@ -23,7 +23,7 @@ function App(){
     <BrowserRouter>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn user={user} setUser={setUser}/>} />
+        <Route path="/signin" element={<SignIn setUser={setUser}/>} />
         <Route path="/home" element={<Home user={user}/>} />
       </Routes>
     </BrowserRouter>
