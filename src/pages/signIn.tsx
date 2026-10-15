@@ -43,7 +43,7 @@ function SignIn({setUser}:{setUser:React.Dispatch<React.SetStateAction<string>>}
     return(
         <div className="h-screen w-screen bg-grey-200 flex justify-around items-center select-none">
             <div>
-                <img src="../../public/download.jpg" className="h-150 w-130 "></img>
+                <img src="/download.jpg" className="h-150 w-130 "></img>
             </div>
             <div className="border-l-6 border-gray-200 p-50 mr-20 h-full relative">
                 <div className="absolute left-30 top-50vh bg-white w-90 h-90 rounded-xl p-10 flex flex-col">
