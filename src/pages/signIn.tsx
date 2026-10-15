@@ -45,8 +45,8 @@ function SignIn({setUser}:{setUser:React.Dispatch<React.SetStateAction<string>>}
             <div>
                 <img src="/download.jpg" className="h-150 w-130 "></img>
             </div>
-            <div className="border-l-6 border-gray-200 p-50 mr-20 h-full relative">
-                <div className="absolute left-30 top-50vh bg-white w-90 h-90 rounded-xl p-10 flex flex-col">
+            <div className="pl-50 pt-40 pb-40 border-l-6 border-l-gray-200">
+                <div className="left-30 top-50vh bg-white w-90 h-90 rounded-xl p-10 flex flex-col">
                     <div className="flex justify-center text-4xl p-2">Log In</div>
                     <Input reference={usernameRef} placeHolder="Username" />
                     <Input reference={passwordRef} placeHolder="Password" type="password"/>
