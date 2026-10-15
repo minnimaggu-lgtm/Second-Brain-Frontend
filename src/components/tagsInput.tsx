@@ -1,7 +1,7 @@
 import { useState, type KeyboardEvent, type ChangeEvent, type ReactElement } from "react";
 import { Tag } from "./tag";
 
-export function TagsInput({tags, setTags ,msg, setMsg}:{tags: string[], setTags:React.Dispatch<React.SetStateAction<string[]>>, msg:string, setMsg: React.Dispatch<React.SetStateAction<string>>}){
+export function TagsInput({tags, setTags, setMsg}:{tags: string[], setTags:React.Dispatch<React.SetStateAction<string[]>>, setMsg: React.Dispatch<React.SetStateAction<string>>}){
     const [inputValue, setInputValue] = useState("");
 
 

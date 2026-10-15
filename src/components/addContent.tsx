@@ -67,7 +67,7 @@ export function AddContent({setClose, setCardsSize}: AddContentPropType){
                         <Input reference={titleRef} placeHolder="Title"/>
                         <Input reference={linkRef} placeHolder="Link"/>
                         <DropDown type={cType} setType={setCType}/>
-                        <TagsInput tags={tags} setTags={setTags} msg={msg} setMsg={setMsg}/>
+                        <TagsInput tags={tags} setTags={setTags} setMsg={setMsg}/>
                     </div>
                     <MsgBox msg={msg} />
                     <div className="flex justify-center mt-4">
