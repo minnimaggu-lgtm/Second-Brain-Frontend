@@ -53,7 +53,7 @@ export function AddContent({setClose, setCardsSize}: AddContentPropType){
     }
     
     return(
-        <div className="h-screen w-screen fixed top-0 left-0 bg-black/20 flex justify-center ">
+        <div className="h-screen w-screen fixed top-0 left-0 bg-black/20 flex justify-center select-none">
             <div className="flex flex-col justify-center">
                 <div className="flex flex-col justify-between bg-white rounded-md p-5 outline-3 outline-gray-200 min-h-100 w-90 ">
 
@@ -67,7 +67,7 @@ export function AddContent({setClose, setCardsSize}: AddContentPropType){
                         <Input reference={titleRef} placeHolder="Title"/>
                         <Input reference={linkRef} placeHolder="Link"/>
                         <DropDown type={cType} setType={setCType}/>
-                        <TagsInput tags={tags} setTags={setTags}/>
+                        <TagsInput tags={tags} setTags={setTags} msg={msg} setMsg={setMsg}/>
                     </div>
                     <MsgBox msg={msg} />
                     <div className="flex justify-center mt-4">

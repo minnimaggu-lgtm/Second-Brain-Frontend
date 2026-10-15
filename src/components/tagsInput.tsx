@@ -1,16 +1,31 @@
 import { useState, type KeyboardEvent, type ChangeEvent, type ReactElement } from "react";
 import { Tag } from "./tag";
 
-export function TagsInput({tags, setTags}:{tags: string[], setTags:React.Dispatch<React.SetStateAction<string[]>>}){
+export function TagsInput({tags, setTags ,msg, setMsg}:{tags: string[], setTags:React.Dispatch<React.SetStateAction<string[]>>, msg:string, setMsg: React.Dispatch<React.SetStateAction<string>>}){
     const [inputValue, setInputValue] = useState("");
 
 
     function handleKeyDown(e: KeyboardEvent<HTMLInputElement>){
         if(e.key === "Enter"){
             const cleanValue = inputValue.trim();
-            if (cleanValue && !tags.includes(cleanValue)) {
+            if (cleanValue && !tags.includes(cleanValue) && tags.length<20 && cleanValue.length<=10) {
                 setTags([...tags, cleanValue]);
-                setInputValue(""); 
+                setInputValue("");
+                setMsg("");
+            }
+            else{
+                if(!cleanValue){
+                    setMsg("Tag must not be empty tag.")
+                }
+                else if(cleanValue.length>=10){
+                    setMsg("Length of tag must not exceed 10 chars at most.")       
+                }
+                else if(tags.length>=20){
+                    setMsg("Maximum tags limit exceeded."); 
+                }
+                else{
+                    setMsg("Tags must be unique.");
+                }
             }
         }
         if(e.key === "Backspace"){
@@ -32,7 +47,7 @@ export function TagsInput({tags, setTags}:{tags: string[], setTags:React.Dispatc
                 }}
             onKeyDown={handleKeyDown}
             placeholder={tags.length === 0 ? "Type and press enter..." : ""}
-            className="flex-1 pb-20 max-h-25 border-none outline-none "
+            className="flex-1 pb-20 max-h-25 pt-3 border-none outline-none "
             >
             </input>
         </div>
